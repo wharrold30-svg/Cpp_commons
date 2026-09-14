@@ -54,31 +54,63 @@ CommonType	include/nlohmann/json.hpp	/^        using CommonType = typename std::
 CompatibleLimits	include/nlohmann/json.hpp	/^    using CompatibleLimits = std::numeric_limits<CompatibleNumberIntegerType>;$/;"	t	struct:detail::is_compatible_integer_type_impl	typeref:typename:std::numeric_limits<CompatibleNumberIntegerType>	access:public
 Container	include/nlohmann/json.hpp	/^    using Container = std::vector<std::pair<const Key, T>, Allocator>;$/;"	t	struct:ordered_map	typeref:typename:std::vector<std::pair<const Key,T>,Allocator>	access:public
 DATE_H	Date.h	/^#define DATE_H$/;"	d
-Date	Date.h	/^    Date();$/;"	p	class:Date	access:public	signature:()
-Date	Date.h	/^    Date(const Date& otherDate);$/;"	p	class:Date	access:public	signature:(const Date & otherDate)
-Date	Date.h	/^    Date(const Date&& otherDate) noexcept;$/;"	p	class:Date	access:public	signature:(const Date && otherDate)
-Date	Date.h	/^    explicit Date(const std::tm& date);$/;"	p	class:Date	access:public	signature:(const std::tm & date)
-Date	Date.h	/^    explicit Date(std::string_view date);$/;"	p	class:Date	access:public	signature:(std::string_view date)
-Date	Date.h	/^class Date{$/;"	c
-Date::Date	Date.h	/^    Date();$/;"	p	class:Date	access:public	signature:()
-Date::Date	Date.h	/^    Date(const Date& otherDate);$/;"	p	class:Date	access:public	signature:(const Date & otherDate)
-Date::Date	Date.h	/^    Date(const Date&& otherDate) noexcept;$/;"	p	class:Date	access:public	signature:(const Date && otherDate)
-Date::Date	Date.h	/^    explicit Date(const std::tm& date);$/;"	p	class:Date	access:public	signature:(const std::tm & date)
-Date::Date	Date.h	/^    explicit Date(std::string_view date);$/;"	p	class:Date	access:public	signature:(std::string_view date)
-Date::empty	Date.h	/^    bool empty() const;$/;"	p	class:Date	typeref:typename:bool	access:public	signature:() const
-Date::getDBStr	Date.h	/^    std::string getDBStr()const;$/;"	p	class:Date	typeref:typename:std::string	access:public	signature:() const
-Date::getStr	Date.h	/^    std::string getStr() const;$/;"	p	class:Date	typeref:typename:std::string	access:public	signature:() const
-Date::getTM	Date.h	/^    inline std::tm getTM() const{$/;"	f	class:Date	typeref:typename:std::tm	access:public	signature:() const
-Date::isLT	Date.h	/^    inline bool isLT()const {$/;"	f	class:Date	typeref:typename:bool	access:public	signature:() const
-Date::m_date	Date.h	/^    std::tm m_date;$/;"	m	class:Date	typeref:typename:std::tm	access:private
-Date::m_isLT	Date.h	/^    bool m_isLT{false};$/;"	m	class:Date	typeref:typename:bool	access:private
-Date::operator =	Date.h	/^    Date& operator=(const Date& rhs);$/;"	p	class:Date	typeref:typename:Date &	access:public	signature:(const Date & rhs)
-Date::operator =	Date.h	/^    Date& operator=(const Date&& rhs) noexcept;$/;"	p	class:Date	typeref:typename:Date &	access:public	signature:(const Date && rhs)
-Date::operator std::string	Date.h	/^    explicit operator std::string() const;$/;"	p	class:Date	access:public	signature:() const
-Date::swap	Date.cpp	/^void Date::swap(Date& otherDate) noexcept {$/;"	f	class:Date	typeref:typename:void	signature:(Date & otherDate)
-Date::swap	Date.h	/^    void swap(Date& otherDate) noexcept;$/;"	p	class:Date	typeref:typename:void	access:public	signature:(Date & otherDate)
-Date::validateDateTime	Date.h	/^    bool validateDateTime(std::string_view str) const;$/;"	p	class:Date	typeref:typename:bool	access:private	signature:(std::string_view str) const
-Date::~Date	Date.h	/^    ~Date() = default;$/;"	p	class:Date	access:public	signature:()
+DT	Date.h	/^namespace DT{$/;"	n
+DT::Date	Date.h	/^class Date{$/;"	c	namespace:DT
+DT::Date::Date	Date.cpp	/^DT::Date::Date() = default;$/;"	p	class:DT::Date	file:	signature:()
+DT::Date::Date	Date.cpp	/^DT::Date::Date(const DT::Date& otherDate) : DT::Date(otherDate.m_date){}$/;"	f	class:DT::Date	signature:(const DT::Date & otherDate)
+DT::Date::Date	Date.cpp	/^DT::Date::Date(const std::tm& date)$/;"	f	class:DT::Date	signature:(const std::tm & date)
+DT::Date::Date	Date.cpp	/^DT::Date::Date(std::string_view date){$/;"	f	class:DT::Date	signature:(std::string_view date)
+DT::Date::Date	Date.h	/^    Date();$/;"	p	class:DT::Date	access:public	signature:()
+DT::Date::Date	Date.h	/^    Date(Date&& otherDate) = delete;$/;"	p	class:DT::Date	access:public	signature:(Date && otherDate)
+DT::Date::Date	Date.h	/^    Date(const Date& otherDate);$/;"	p	class:DT::Date	access:public	signature:(const Date & otherDate)
+DT::Date::Date	Date.h	/^    explicit Date(const std::tm& date);$/;"	p	class:DT::Date	access:public	signature:(const std::tm & date)
+DT::Date::Date	Date.h	/^    explicit Date(std::string_view date);$/;"	p	class:DT::Date	access:public	signature:(std::string_view date)
+DT::Date::clear	Date.h	/^    inline void clear(){$/;"	f	class:DT::Date	typeref:typename:void	access:public	signature:()
+DT::Date::convertToGmt	Date.cpp	/^void DT::Date::convertToGmt(){$/;"	f	class:DT::Date	typeref:typename:void	signature:()
+DT::Date::convertToGmt	Date.h	/^    void convertToGmt();$/;"	p	class:DT::Date	typeref:typename:void	access:public	signature:()
+DT::Date::convertToLT	Date.cpp	/^void DT::Date::convertToLT(){$/;"	f	class:DT::Date	typeref:typename:void	signature:()
+DT::Date::convertToLT	Date.h	/^    void convertToLT();$/;"	p	class:DT::Date	typeref:typename:void	access:public	signature:()
+DT::Date::empty	Date.h	/^    bool empty() const;$/;"	p	class:DT::Date	typeref:typename:bool	access:public	signature:() const
+DT::Date::getDBStr	Date.cpp	/^std::string DT::Date::getDBStr() const {$/;"	f	class:DT::Date	typeref:typename:std::string	signature:() const
+DT::Date::getDBStr	Date.h	/^    std::string getDBStr()const;$/;"	p	class:DT::Date	typeref:typename:std::string	access:public	signature:() const
+DT::Date::getStr	Date.cpp	/^std::string DT::Date::getStr() const {$/;"	f	class:DT::Date	typeref:typename:std::string	signature:() const
+DT::Date::getStr	Date.h	/^    std::string getStr() const;$/;"	p	class:DT::Date	typeref:typename:std::string	access:public	signature:() const
+DT::Date::getTM	Date.h	/^    inline std::tm getTM() const{$/;"	f	class:DT::Date	typeref:typename:std::tm	access:public	signature:() const
+DT::Date::isLT	Date.h	/^    inline bool isLT()const {$/;"	f	class:DT::Date	typeref:typename:bool	access:public	signature:() const
+DT::Date::m_date	Date.h	/^    std::tm m_date;$/;"	m	class:DT::Date	typeref:typename:std::tm	access:private
+DT::Date::m_isLT	Date.h	/^    bool m_isLT{false};$/;"	m	class:DT::Date	typeref:typename:bool	access:private
+DT::Date::normalize	Date.h	/^    inline void normalize(){$/;"	f	class:DT::Date	typeref:typename:void	access:public	signature:()
+DT::Date::operator -	Date.h	/^    double operator - (const Date& otherDate) const {$/;"	f	class:DT::Date	typeref:typename:double	access:public	signature:(const Date & otherDate) const
+DT::Date::operator <=>	Date.h	/^    std::partial_ordering operator <=>(const Date& rhs) const {$/;"	f	class:DT::Date	typeref:typename:std::partial_ordering	access:public	signature:(const Date & rhs) const
+DT::Date::operator =	Date.cpp	/^DT::Date& DT::Date::operator=(const DT::Date& rhs){$/;"	f	class:DT::Date	typeref:typename:DT::Date &	signature:(const DT::Date & rhs)
+DT::Date::operator =	Date.h	/^    Date& operator=(Date&& rhs) = delete;$/;"	p	class:DT::Date	typeref:typename:Date &	access:public	signature:(Date && rhs)
+DT::Date::operator =	Date.h	/^    Date& operator=(const Date& rhs);$/;"	p	class:DT::Date	typeref:typename:Date &	access:public	signature:(const Date & rhs)
+DT::Date::operator ==	Date.h	/^    bool operator == (const Date& rhs) const {$/;"	f	class:DT::Date	typeref:typename:bool	access:public	signature:(const Date & rhs) const
+DT::Date::operator std::string	Date.h	/^    explicit operator std::string() const;$/;"	p	class:DT::Date	access:public	signature:() const
+DT::Date::setTM	Date.cpp	/^void DT::Date::setTM(std::string_view str){$/;"	f	class:DT::Date	typeref:typename:void	signature:(std::string_view str)
+DT::Date::setTM	Date.h	/^    void setTM(std::string_view str = " ");$/;"	p	class:DT::Date	typeref:typename:void	access:public	signature:(std::string_view str=" ")
+DT::Date::swap	Date.cpp	/^void DT::Date::swap(DT::Date& otherDate) noexcept {$/;"	f	class:DT::Date	typeref:typename:void	signature:(DT::Date & otherDate)
+DT::Date::swap	Date.h	/^    void swap(Date& otherDate) noexcept;$/;"	p	class:DT::Date	typeref:typename:void	access:public	signature:(Date & otherDate)
+DT::Date::validateDateTime	Date.cpp	/^bool DT::Date::validateDateTime(std::string_view str) const {$/;"	f	class:DT::Date	typeref:typename:bool	signature:(std::string_view str) const
+DT::Date::validateDateTime	Date.h	/^    bool validateDateTime(std::string_view str) const;$/;"	p	class:DT::Date	typeref:typename:bool	access:private	signature:(std::string_view str) const
+DT::Date::~Date	Date.h	/^    ~Date() = default;$/;"	p	class:DT::Date	access:public	signature:()
+DT::DateError	Date.h	/^class DateError : public std::runtime_error {$/;"	c	namespace:DT	inherits:std::runtime_error
+DT::DateError::DateError	Date.h	/^    explicit DateError(std::string_view msg) $/;"	f	class:DT::DateError	access:public	signature:(std::string_view msg)
+DT::getCurrentTimeGMT	Date.h	/^static Date getCurrentTimeGMT();$/;"	p	namespace:DT	typeref:typename:Date	signature:()
+DT::getCurrentTimeLT	Date.h	/^static Date getCurrentTimeLT();$/;"	p	namespace:DT	typeref:typename:Date	signature:()
+DT::swap	Date.cpp	/^void DT::swap(DT::Date& one, DT::Date& other) noexcept {$/;"	f	class:DT	typeref:typename:void	signature:(DT::Date & one,DT::Date & other)
+Date	Date.cpp	/^DT::Date::Date() = default;$/;"	p	class:DT::Date	file:	signature:()
+Date	Date.cpp	/^DT::Date::Date(const DT::Date& otherDate) : DT::Date(otherDate.m_date){}$/;"	f	class:DT::Date	signature:(const DT::Date & otherDate)
+Date	Date.cpp	/^DT::Date::Date(const std::tm& date)$/;"	f	class:DT::Date	signature:(const std::tm & date)
+Date	Date.cpp	/^DT::Date::Date(std::string_view date){$/;"	f	class:DT::Date	signature:(std::string_view date)
+Date	Date.h	/^    Date();$/;"	p	class:DT::Date	access:public	signature:()
+Date	Date.h	/^    Date(Date&& otherDate) = delete;$/;"	p	class:DT::Date	access:public	signature:(Date && otherDate)
+Date	Date.h	/^    Date(const Date& otherDate);$/;"	p	class:DT::Date	access:public	signature:(const Date & otherDate)
+Date	Date.h	/^    explicit Date(const std::tm& date);$/;"	p	class:DT::Date	access:public	signature:(const std::tm & date)
+Date	Date.h	/^    explicit Date(std::string_view date);$/;"	p	class:DT::Date	access:public	signature:(std::string_view date)
+Date	Date.h	/^class Date{$/;"	c	namespace:DT
+DateError	Date.h	/^    explicit DateError(std::string_view msg) $/;"	f	class:DT::DateError	access:public	signature:(std::string_view msg)
+DateError	Date.h	/^class DateError : public std::runtime_error {$/;"	c	namespace:DT	inherits:std::runtime_error
 Extend	include/nlohmann/json.hpp	/^struct Extend<integer_sequence<T, Ints...>, SeqSize, 0>$/;"	s	namespace:detail::utility_internal
 Extend	include/nlohmann/json.hpp	/^struct Extend<integer_sequence<T, Ints...>, SeqSize, 1>$/;"	s	namespace:detail::utility_internal
 Gen	include/nlohmann/json.hpp	/^struct Gen$/;"	s	namespace:detail::utility_internal
@@ -390,6 +422,7 @@ TUnExt	include/nlohmann/json.hpp	/^    using TUnExt = typename std::remove_exten
 TUnPtr	include/nlohmann/json.hpp	/^    using TUnPtr = typename std::remove_pointer<T>::type;$/;"	t	function:detail::impl::is_c_string	typeref:typename:std::remove_pointer<T>::type
 UTF8_ACCEPT	include/nlohmann/json.hpp	/^    static constexpr std::uint8_t UTF8_ACCEPT = 0;$/;"	m	class:detail::serializer	typeref:typename:std::uint8_t	access:private
 UTF8_REJECT	include/nlohmann/json.hpp	/^    static constexpr std::uint8_t UTF8_REJECT = 1;$/;"	m	class:detail::serializer	typeref:typename:std::uint8_t	access:private
+__anon7dd5dc340102	Date.cpp	/^    auto assignFunction = [this](const std::smatch& m){$/;"	f	function:DT::Date::setTM	file:	signature:(const std::smatch& m)
 __anonac0886120103	include/nlohmann/json.hpp	/^    enum { value = sizeof(test<T>(nullptr)) == sizeof(char) }; \/\/ NOLINT(cppcoreguidelines-pro/;"	g	struct:detail::is_ordered_map	access:public
 __anonac0886120202	include/nlohmann/json.hpp	/^        {$/;"	f	function:detail::exception::diagnostics	file:	signature:(const std::string & a, const std::string & b) 
 __anonac0886120302	include/nlohmann/json.hpp	/^    {$/;"	f	function:detail::from_json	file:	signature:(const BasicJsonType & i) 
@@ -420,6 +453,7 @@ __anonac0886121902	include/nlohmann/json.hpp	/^        {$/;"	f	function:basic_js
 __anonac0886121a02	include/nlohmann/json.hpp	/^        {$/;"	f	function:basic_json::patch_inplace	file:	signature:(json_pointer & ptr, const basic_json & val) 
 __anonac0886121b02	include/nlohmann/json.hpp	/^        {$/;"	f	function:basic_json::patch_inplace	file:	signature:(json_pointer & ptr) 
 __anonac0886121c02	include/nlohmann/json.hpp	/^            {$/;"	f	function:basic_json::patch_inplace	typeref:typename:basic_json &	file:	signature:(const string_t& op, const string_t& member, bool string_type) 
+__anonbbca76730102	date_test.cpp	/^    auto displayResult = [](const bool r){$/;"	f	function:main	file:	signature:(const bool r)
 accept	include/nlohmann/json.hpp	/^    bool accept(const bool strict = true)$/;"	f	class:detail::parser	typeref:typename:bool	access:public	signature:(const bool strict=true)
 accept	include/nlohmann/json.hpp	/^    static bool accept(InputType&& i,$/;"	f	class:basic_json	typeref:typename:bool	access:public	signature:(InputType && i,const bool ignore_comments=false)
 accept	include/nlohmann/json.hpp	/^    static bool accept(IteratorType first, IteratorType last,$/;"	f	class:basic_json	typeref:typename:bool	access:public	signature:(IteratorType first,IteratorType last,const bool ignore_comments=false)
@@ -936,6 +970,7 @@ char_type	include/nlohmann/json.hpp	/^    using char_type = unsigned char;$/;"	t
 chars_read	include/nlohmann/json.hpp	/^    std::size_t chars_read = 0;$/;"	m	class:detail::binary_reader	typeref:typename:std::size_t	access:private
 chars_read_current_line	include/nlohmann/json.hpp	/^    std::size_t chars_read_current_line = 0;$/;"	m	struct:detail::position_t	typeref:typename:std::size_t	access:public
 chars_read_total	include/nlohmann/json.hpp	/^    std::size_t chars_read_total = 0;$/;"	m	struct:detail::position_t	typeref:typename:std::size_t	access:public
+clear	Date.h	/^    inline void clear(){$/;"	f	class:DT::Date	typeref:typename:void	access:public	signature:()
 clear	include/nlohmann/json.hpp	/^    void clear() noexcept$/;"	f	class:basic_json	typeref:typename:void	access:public	signature:()
 clear_subtype	include/nlohmann/json.hpp	/^    void clear_subtype() noexcept$/;"	f	class:byte_container_with_subtype	typeref:typename:void	access:public	signature:()
 codepoint	include/nlohmann/json.hpp	/^        std::uint32_t codepoint{};$/;"	m	class:detail::serializer	typeref:typename:std::uint32_t	access:public
@@ -994,6 +1029,10 @@ contains	include/nlohmann/json.hpp	/^    bool contains(const typename object_t::
 contiguous_bytes_input_adapter	include/nlohmann/json.hpp	/^using contiguous_bytes_input_adapter = decltype(input_adapter(std::declval<const char*>(), std::/;"	t	namespace:detail
 convert	include/nlohmann/json.hpp	/^    json_pointer<string_t> convert() const&$/;"	f	class:json_pointer	typeref:typename:json_pointer<string_t>	access:private	signature:() const
 convert	include/nlohmann/json.hpp	/^    json_pointer<string_t> convert()&&$/;"	f	class:json_pointer	typeref:typename:json_pointer<string_t>	access:private	signature:()
+convertToGmt	Date.cpp	/^void DT::Date::convertToGmt(){$/;"	f	class:DT::Date	typeref:typename:void	signature:()
+convertToGmt	Date.h	/^    void convertToGmt();$/;"	p	class:DT::Date	typeref:typename:void	access:public	signature:()
+convertToLT	Date.cpp	/^void DT::Date::convertToLT(){$/;"	f	class:DT::Date	typeref:typename:void	signature:()
+convertToLT	Date.h	/^    void convertToLT();$/;"	p	class:DT::Date	typeref:typename:void	access:public	signature:()
 copy	include/nlohmann/json.hpp	/^        enum class patch_operations {add, remove, replace, move, copy, test, invalid};$/;"	e	enum:basic_json::patch_inplace::patch_operations	access:public
 count	include/nlohmann/json.hpp	/^    size_type count(KeyType && key) const \/\/ NOLINT(cppcoreguidelines-missing-std-forward)$/;"	f	struct:ordered_map	typeref:typename:size_type	access:public	signature:(KeyType && key) const
 count	include/nlohmann/json.hpp	/^    size_type count(KeyType && key) const$/;"	f	class:basic_json	typeref:typename:size_type	access:public	signature:(KeyType && key) const
@@ -2114,7 +2153,7 @@ emplace	include/nlohmann/json.hpp	/^    std::pair<iterator, bool> emplace(Args&&
 emplace	include/nlohmann/json.hpp	/^    std::pair<iterator, bool> emplace(KeyType && key, T && t)$/;"	f	struct:ordered_map	typeref:typename:std::pair<iterator,bool>	access:public	signature:(KeyType && key,T && t)
 emplace	include/nlohmann/json.hpp	/^    std::pair<iterator, bool> emplace(const key_type& key, T&& t)$/;"	f	struct:ordered_map	typeref:typename:std::pair<iterator,bool>	access:public	signature:(const key_type & key,T && t)
 emplace_back	include/nlohmann/json.hpp	/^    reference emplace_back(Args&& ... args)$/;"	f	class:basic_json	typeref:typename:reference	access:public	signature:(Args &&...args)
-empty	Date.h	/^    bool empty() const;$/;"	p	class:Date	typeref:typename:bool	access:public	signature:() const
+empty	Date.h	/^    bool empty() const;$/;"	p	class:DT::Date	typeref:typename:bool	access:public	signature:() const
 empty	include/nlohmann/json.hpp	/^    bool empty() const noexcept$/;"	f	class:basic_json	typeref:typename:bool	access:public	signature:() const
 empty	include/nlohmann/json.hpp	/^    bool empty() const noexcept$/;"	f	class:json_pointer	typeref:typename:bool	access:public	signature:() const
 empty	include/nlohmann/json.hpp	/^    bool empty() const$/;"	f	class:detail::iterator_input_adapter	typeref:typename:bool	access:private	signature:() const
@@ -2262,9 +2301,14 @@ get	include/nlohmann/json.hpp	/^    char_int_type get()$/;"	f	class:detail::lexe
 get	include/nlohmann/json.hpp	/^    contiguous_bytes_input_adapter&& get()$/;"	f	class:detail::span_input_adapter	typeref:typename:contiguous_bytes_input_adapter &&	access:public	signature:()
 get	include/nlohmann/json.hpp	/^auto get(const nlohmann::detail::iteration_proxy_value<IteratorType>& i) -> decltype(i.key())$/;"	f	namespace:detail	typeref:typename:decltype(i.key ())	signature:(const nlohmann::detail::iteration_proxy_value<IteratorType> & i)
 get	include/nlohmann/json.hpp	/^auto get(const nlohmann::detail::iteration_proxy_value<IteratorType>& i) -> decltype(i.value())$/;"	f	namespace:detail	typeref:typename:decltype(i.value ())	signature:(const nlohmann::detail::iteration_proxy_value<IteratorType> & i)
-getDBStr	Date.h	/^    std::string getDBStr()const;$/;"	p	class:Date	typeref:typename:std::string	access:public	signature:() const
-getStr	Date.h	/^    std::string getStr() const;$/;"	p	class:Date	typeref:typename:std::string	access:public	signature:() const
-getTM	Date.h	/^    inline std::tm getTM() const{$/;"	f	class:Date	typeref:typename:std::tm	access:public	signature:() const
+getCurrentTime	Date.h	/^std::time_t getCurrentTime();$/;"	p	typeref:typename:std::time_t	signature:()
+getCurrentTimeGMT	Date.h	/^static Date getCurrentTimeGMT();$/;"	p	namespace:DT	typeref:typename:Date	signature:()
+getCurrentTimeLT	Date.h	/^static Date getCurrentTimeLT();$/;"	p	namespace:DT	typeref:typename:Date	signature:()
+getDBStr	Date.cpp	/^std::string DT::Date::getDBStr() const {$/;"	f	class:DT::Date	typeref:typename:std::string	signature:() const
+getDBStr	Date.h	/^    std::string getDBStr()const;$/;"	p	class:DT::Date	typeref:typename:std::string	access:public	signature:() const
+getStr	Date.cpp	/^std::string DT::Date::getStr() const {$/;"	f	class:DT::Date	typeref:typename:std::string	signature:() const
+getStr	Date.h	/^    std::string getStr() const;$/;"	p	class:DT::Date	typeref:typename:std::string	access:public	signature:() const
+getTM	Date.h	/^    inline std::tm getTM() const{$/;"	f	class:DT::Date	typeref:typename:std::tm	access:public	signature:() const
 get_allocator	include/nlohmann/json.hpp	/^    static allocator_type get_allocator()$/;"	f	class:basic_json	typeref:typename:allocator_type	access:public	signature:()
 get_and_create	include/nlohmann/json.hpp	/^    BasicJsonType& get_and_create(BasicJsonType& j) const$/;"	f	class:json_pointer	typeref:typename:BasicJsonType &	access:private	signature:(BasicJsonType & j) const
 get_arithmetic_value	include/nlohmann/json.hpp	/^void get_arithmetic_value(const BasicJsonType& j, ArithmeticType& val)$/;"	f	namespace:detail	typeref:typename:void	signature:(const BasicJsonType & j,ArithmeticType & val)
@@ -2427,7 +2471,7 @@ invalid_iterator	include/nlohmann/json.hpp	/^    invalid_iterator(int id_, const
 invalid_iterator	include/nlohmann/json.hpp	/^    using invalid_iterator = detail::invalid_iterator;$/;"	t	class:basic_json	typeref:typename:detail::invalid_iterator	access:public
 invalid_iterator	include/nlohmann/json.hpp	/^class invalid_iterator : public exception$/;"	c	namespace:detail	inherits:exception
 is	include/nlohmann/json.hpp	/^    std::istream* is = nullptr;$/;"	m	class:detail::input_stream_adapter	typeref:typename:std::istream *	access:private
-isLT	Date.h	/^    inline bool isLT()const {$/;"	f	class:Date	typeref:typename:bool	access:public	signature:() const
+isLT	Date.h	/^    inline bool isLT()const {$/;"	f	class:DT::Date	typeref:typename:bool	access:public	signature:() const
 is_array	include/nlohmann/json.hpp	/^    constexpr bool is_array() const noexcept$/;"	f	class:basic_json	typeref:typename:bool	access:public	signature:() const
 is_basic_json	include/nlohmann/json.hpp	/^struct is_basic_json<NLOHMANN_BASIC_JSON_TPL> : std::true_type {};$/;"	s	namespace:detail	inherits:std::true_type
 is_basic_json	include/nlohmann/json.hpp	/^template<typename> struct is_basic_json : std::false_type {};$/;"	s	namespace:detail	inherits:std::false_type
@@ -2715,10 +2759,10 @@ loc	include/nlohmann/json.hpp	/^    const std::lconv* loc = nullptr;$/;"	m	class
 m	include/nlohmann/json.hpp	/^    std::runtime_error m;$/;"	m	class:detail::exception	typeref:typename:std::runtime_error	access:private
 m_compare	include/nlohmann/json.hpp	/^    JSON_NO_UNIQUE_ADDRESS key_compare m_compare = key_compare();$/;"	m	struct:ordered_map	typeref:typename:JSON_NO_UNIQUE_ADDRESS key_compare	access:private
 m_data	include/nlohmann/json.hpp	/^    data m_data = {};$/;"	m	class:basic_json	typeref:typename:data	access:public
-m_date	Date.h	/^    std::tm m_date;$/;"	m	class:Date	typeref:typename:std::tm	access:private
+m_date	Date.h	/^    std::tm m_date;$/;"	m	class:DT::Date	typeref:typename:std::tm	access:private
 m_file	include/nlohmann/json.hpp	/^    std::FILE* m_file;$/;"	m	class:detail::file_input_adapter	typeref:typename:std::FILE *	access:private
 m_has_subtype	include/nlohmann/json.hpp	/^    bool m_has_subtype = false;$/;"	m	class:byte_container_with_subtype	typeref:typename:bool	access:private
-m_isLT	Date.h	/^    bool m_isLT{false};$/;"	m	class:Date	typeref:typename:bool	access:private
+m_isLT	Date.h	/^    bool m_isLT{false};$/;"	m	class:DT::Date	typeref:typename:bool	access:private
 m_it	include/nlohmann/json.hpp	/^    internal_iterator<typename std::remove_const<BasicJsonType>::type> m_it {};$/;"	m	class:detail::iter_impl	typeref:typename:internal_iterator<typename std::remove_const<BasicJsonType>::type>	access:public
 m_lexer	include/nlohmann/json.hpp	/^    lexer_t m_lexer;$/;"	m	class:detail::parser	typeref:typename:lexer_t	access:private
 m_lexer_ref	include/nlohmann/json.hpp	/^    lexer_t* m_lexer_ref = nullptr;$/;"	m	class:detail::json_sax_dom_callback_parser	typeref:typename:lexer_t *	access:private
@@ -2727,6 +2771,7 @@ m_parent	include/nlohmann/json.hpp	/^    basic_json* m_parent = nullptr;$/;"	m	c
 m_subtype	include/nlohmann/json.hpp	/^    subtype_type m_subtype = 0;$/;"	m	class:byte_container_with_subtype	typeref:typename:subtype_type	access:private
 m_type	include/nlohmann/json.hpp	/^        value_t m_type = value_t::null;$/;"	m	struct:basic_json::data	typeref:typename:value_t	access:public
 m_value	include/nlohmann/json.hpp	/^        json_value m_value = {};$/;"	m	struct:basic_json::data	typeref:typename:json_value	access:public
+main	date_test.cpp	/^int main(){$/;"	f	typeref:typename:int	signature:()
 main	test.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
 make_array	include/nlohmann/json.hpp	/^constexpr std::array<T, sizeof...(Args)> make_array(Args&& ... args)$/;"	f	namespace:detail	typeref:typename:std::array<T,sizeof...(Args)>	signature:(Args &&...args)
 make_index_sequence	include/nlohmann/json.hpp	/^using make_index_sequence = make_integer_sequence<size_t, N>;$/;"	t	namespace:detail	typeref:typename:make_integer_sequence<size_t,N>
@@ -2756,6 +2801,7 @@ nonesuch	include/nlohmann/json.hpp	/^    nonesuch() = delete;$/;"	p	struct:detai
 nonesuch	include/nlohmann/json.hpp	/^    nonesuch(nonesuch const&&) = delete;$/;"	p	struct:detail::nonesuch	access:public	signature:(nonesuch const &&)
 nonesuch	include/nlohmann/json.hpp	/^    nonesuch(nonesuch const&) = delete;$/;"	p	struct:detail::nonesuch	access:public	signature:(nonesuch const &)
 nonesuch	include/nlohmann/json.hpp	/^struct nonesuch$/;"	s	namespace:detail
+normalize	Date.h	/^    inline void normalize(){$/;"	f	class:DT::Date	typeref:typename:void	access:public	signature:()
 normalize	include/nlohmann/json.hpp	/^    static diyfp normalize(diyfp x) noexcept$/;"	f	struct:detail::dtoa_impl::diyfp	typeref:typename:diyfp	access:public	signature:(diyfp x)
 normalize_to	include/nlohmann/json.hpp	/^    static diyfp normalize_to(const diyfp& x, const int target_exponent) noexcept$/;"	f	struct:detail::dtoa_impl::diyfp	typeref:typename:diyfp	access:public	signature:(const diyfp & x,const int target_exponent)
 npos	include/nlohmann/json.hpp	/^    constexpr std::size_t binary_reader<BasicJsonType, InputAdapterType, SAX>::npos;$/;"	m	class:detail::binary_reader<BasicJsonType, InputAdapterType, SAX>	typeref:typename:std::size_t
@@ -2879,6 +2925,7 @@ operator +=	include/nlohmann/json.hpp	/^    reference operator+=(basic_json&& va
 operator +=	include/nlohmann/json.hpp	/^    reference operator+=(const basic_json& val)$/;"	f	class:basic_json	typeref:typename:reference	access:public	signature:(const basic_json & val)
 operator +=	include/nlohmann/json.hpp	/^    reference operator+=(const typename object_t::value_type& val)$/;"	f	class:basic_json	typeref:typename:reference	access:public	signature:(const typename object_t::value_type & val)
 operator +=	include/nlohmann/json.hpp	/^    reference operator+=(initializer_list_t init)$/;"	f	class:basic_json	typeref:typename:reference	access:public	signature:(initializer_list_t init)
+operator -	Date.h	/^    double operator - (const Date& otherDate) const {$/;"	f	class:DT::Date	typeref:typename:double	access:public	signature:(const Date & otherDate) const
 operator -	include/nlohmann/json.hpp	/^    difference_type operator-(const iter_impl& other) const$/;"	f	class:detail::iter_impl	typeref:typename:difference_type	access:public	signature:(const iter_impl & other) const
 operator -	include/nlohmann/json.hpp	/^    difference_type operator-(const json_reverse_iterator& other) const$/;"	f	class:detail::json_reverse_iterator	typeref:typename:difference_type	access:public	signature:(const json_reverse_iterator & other) const
 operator -	include/nlohmann/json.hpp	/^    friend constexpr difference_type operator-(primitive_iterator_t lhs, primitive_iterator_t rh/;"	f	namespace:detail	typeref:typename:difference_type	signature:(primitive_iterator_t lhs,primitive_iterator_t rhs)
@@ -2904,18 +2951,21 @@ operator <	include/nlohmann/json.hpp	/^    bool operator<(const iter_impl& other
 operator <	include/nlohmann/json.hpp	/^    friend constexpr bool operator<(primitive_iterator_t lhs, primitive_iterator_t rhs) noexcept$/;"	f	namespace:detail	typeref:typename:bool	signature:(primitive_iterator_t lhs,primitive_iterator_t rhs)
 operator <	include/nlohmann/json.hpp	/^inline bool operator<(const json_pointer<RefStringTypeLhs>& lhs,$/;"	f	typeref:typename:bool	signature:(const json_pointer<RefStringTypeLhs> & lhs,const json_pointer<RefStringTypeRhs> & rhs)
 operator <	include/nlohmann/json.hpp	/^inline bool operator<(const value_t lhs, const value_t rhs) noexcept$/;"	f	namespace:detail	typeref:typename:bool	signature:(const value_t lhs,const value_t rhs)
+operator <<	Date.h	/^std::ostream& operator << (std::ostream& os, const DT::Date& date);$/;"	p	typeref:typename:std::ostream &	signature:(std::ostream & os,const DT::Date & date)
 operator <<	include/nlohmann/json.hpp	/^    friend std::istream& operator<<(basic_json& j, std::istream& i)$/;"	f	typeref:typename:JSON_HEDLEY_DEPRECATED_FOR (3.0.0,operator>> (std::istream &,basic_json &))std::istream &	signature:(basic_json & j,std::istream & i)
 operator <<	include/nlohmann/json.hpp	/^    friend std::ostream& operator<<(std::ostream& o, const basic_json& j)$/;"	f	typeref:typename:std::ostream &	signature:(std::ostream & o,const basic_json & j)
 operator <<	include/nlohmann/json.hpp	/^    friend std::ostream& operator<<(std::ostream& o, const json_pointer& ptr)$/;"	f	typeref:typename:std::ostream &	signature:(std::ostream & o,const json_pointer & ptr)
 operator <=	include/nlohmann/json.hpp	/^    bool operator<=(ScalarType rhs) const noexcept$/;"	f	class:basic_json	typeref:typename:requires std::is_scalar_v<ScalarType> bool	access:public	signature:(ScalarType rhs) const
 operator <=	include/nlohmann/json.hpp	/^    bool operator<=(const iter_impl& other) const$/;"	f	class:detail::iter_impl	typeref:typename:bool	access:public	signature:(const iter_impl & other) const
 operator <=	include/nlohmann/json.hpp	/^    bool operator<=(const_reference rhs) const noexcept$/;"	f	class:basic_json	typeref:typename:JSON_HEDLEY_DEPRECATED_FOR (3.11.0,undef JSON_USE_LEGACY_DISCARDED_VALUE_COMPARISON)bool	access:public	signature:(const_reference rhs) const
+operator <=>	Date.h	/^    std::partial_ordering operator <=>(const Date& rhs) const {$/;"	f	class:DT::Date	typeref:typename:std::partial_ordering	access:public	signature:(const Date & rhs) const
 operator <=>	include/nlohmann/json.hpp	/^    inline std::partial_ordering operator<=>(const value_t lhs, const value_t rhs) noexcept \/\//;"	f	namespace:detail	typeref:typename:std::partial_ordering	signature:(const value_t lhs,const value_t rhs)
 operator <=>	include/nlohmann/json.hpp	/^    std::partial_ordering operator<=>(ScalarType rhs) const noexcept \/\/ *NOPAD*$/;"	f	class:basic_json	typeref:typename:requires std::is_scalar_v<ScalarType> std::partial_ordering	access:public	signature:(ScalarType rhs) const
 operator <=>	include/nlohmann/json.hpp	/^    std::partial_ordering operator<=>(const_reference rhs) const noexcept \/\/ *NOPAD*$/;"	f	class:basic_json	typeref:typename:std::partial_ordering	access:public	signature:(const_reference rhs) const
 operator <=>	include/nlohmann/json.hpp	/^    std::strong_ordering operator<=>(const json_pointer<RefStringTypeRhs>& rhs) const noexcept \//;"	f	class:json_pointer	typeref:typename:std::strong_ordering	access:public	signature:(const json_pointer<RefStringTypeRhs> & rhs) const
-operator =	Date.h	/^    Date& operator=(const Date& rhs);$/;"	p	class:Date	typeref:typename:Date &	access:public	signature:(const Date & rhs)
-operator =	Date.h	/^    Date& operator=(const Date&& rhs) noexcept;$/;"	p	class:Date	typeref:typename:Date &	access:public	signature:(const Date && rhs)
+operator =	Date.cpp	/^DT::Date& DT::Date::operator=(const DT::Date& rhs){$/;"	f	class:DT::Date	typeref:typename:DT::Date &	signature:(const DT::Date & rhs)
+operator =	Date.h	/^    Date& operator=(Date&& rhs) = delete;$/;"	p	class:DT::Date	typeref:typename:Date &	access:public	signature:(Date && rhs)
+operator =	Date.h	/^    Date& operator=(const Date& rhs);$/;"	p	class:DT::Date	typeref:typename:Date &	access:public	signature:(const Date & rhs)
 operator =	include/nlohmann/json.hpp	/^        data& operator=(const data&) noexcept = delete;$/;"	p	struct:basic_json::data	typeref:typename:data &	access:public	signature:(const data &)
 operator =	include/nlohmann/json.hpp	/^        data& operator=(data&&) noexcept = delete;$/;"	p	struct:basic_json::data	typeref:typename:data &	access:public	signature:(data &&)
 operator =	include/nlohmann/json.hpp	/^    basic_json& operator=(basic_json other) noexcept ($/;"	f	class:basic_json	typeref:typename:basic_json &	access:public	signature:(basic_json other)
@@ -2948,6 +2998,7 @@ operator =	include/nlohmann/json.hpp	/^    serializer& operator=(const serialize
 operator =	include/nlohmann/json.hpp	/^    serializer& operator=(serializer&&) = delete;$/;"	p	class:detail::serializer	typeref:typename:serializer &	access:public	signature:(serializer &&)
 operator =	include/nlohmann/json.hpp	/^    void operator=(nonesuch const&) = delete;$/;"	p	struct:detail::nonesuch	typeref:typename:void	access:public	signature:(nonesuch const &)
 operator =	include/nlohmann/json.hpp	/^    void operator=(nonesuch&&) = delete;$/;"	p	struct:detail::nonesuch	typeref:typename:void	access:public	signature:(nonesuch &&)
+operator ==	Date.h	/^    bool operator == (const Date& rhs) const {$/;"	f	class:DT::Date	typeref:typename:bool	access:public	signature:(const Date & rhs) const
 operator ==	include/nlohmann/json.hpp	/^    bool operator==(ScalarType rhs) const noexcept$/;"	f	class:basic_json	typeref:typename:requires std::is_scalar_v<ScalarType> bool	access:public	signature:(ScalarType rhs) const
 operator ==	include/nlohmann/json.hpp	/^    bool operator==(const IterImpl& other) const$/;"	f	class:detail::iter_impl	typeref:typename:bool	access:public	signature:(const IterImpl & other) const
 operator ==	include/nlohmann/json.hpp	/^    bool operator==(const byte_container_with_subtype& rhs) const$/;"	f	class:byte_container_with_subtype	typeref:typename:bool	access:public	signature:(const byte_container_with_subtype & rhs) const
@@ -2986,7 +3037,7 @@ operator []	include/nlohmann/json.hpp	/^    reference operator[](size_type idx)$
 operator []	include/nlohmann/json.hpp	/^    reference operator[](typename object_t::key_type key) \/\/ NOLINT(performance-unnecessary-va/;"	f	class:basic_json	typeref:typename:reference	access:public	signature:(typename object_t::key_type key)
 operator output_adapter_t<CharType>	include/nlohmann/json.hpp	/^    operator output_adapter_t<CharType>()$/;"	f	class:detail::output_adapter	access:public	signature:()
 operator size_t	include/nlohmann/json.hpp	/^    constexpr operator size_t() const$/;"	f	struct:detail::position_t	access:public	signature:() const
-operator std::string	Date.h	/^    explicit operator std::string() const;$/;"	p	class:Date	access:public	signature:() const
+operator std::string	Date.h	/^    explicit operator std::string() const;$/;"	p	class:DT::Date	access:public	signature:() const
 operator value_t	include/nlohmann/json.hpp	/^    constexpr operator value_t() const noexcept$/;"	f	class:basic_json	access:public	signature:() const
 ordered_json	include/nlohmann/json.hpp	/^    using ordered_json = basic_json<nlohmann::ordered_map>;$/;"	t	typeref:typename:basic_json<nlohmann::ordered_map>
 ordered_map	include/nlohmann/json.hpp	/^              struct ordered_map : std::vector<std::pair<const Key, T>, Allocator>$/;"	s	inherits:std::vector<std::pair<constKey,T>,Allocator>
@@ -3169,6 +3220,8 @@ serializer	include/nlohmann/json.hpp	/^    using serializer = typename BasicJson
 serializer	include/nlohmann/json.hpp	/^    using serializer = typename BasicJsonType::template json_serializer<T, void>;$/;"	t	struct:detail::has_non_default_from_json	typeref:typename:BasicJsonType::template json_serializer<T,void>	access:public
 serializer	include/nlohmann/json.hpp	/^    using serializer = typename BasicJsonType::template json_serializer<T, void>;$/;"	t	struct:detail::has_to_json	typeref:typename:BasicJsonType::template json_serializer<T,void>	access:public
 serializer	include/nlohmann/json.hpp	/^class serializer$/;"	c	namespace:detail
+setTM	Date.cpp	/^void DT::Date::setTM(std::string_view str){$/;"	f	class:DT::Date	typeref:typename:void	signature:(std::string_view str)
+setTM	Date.h	/^    void setTM(std::string_view str = " ");$/;"	p	class:DT::Date	typeref:typename:void	access:public	signature:(std::string_view str=" ")
 set_begin	include/nlohmann/json.hpp	/^                m_it.primitive_iterator.set_begin();$/;"	p	class:detail::iter_impl	typeref:typename:m_it.primitive_iterator.	access:public	signature:()
 set_begin	include/nlohmann/json.hpp	/^    void set_begin() noexcept$/;"	f	class:detail::primitive_iterator_t	typeref:typename:void	access:public	signature:()
 set_end	include/nlohmann/json.hpp	/^                m_it.primitive_iterator.set_end();$/;"	p	class:detail::iter_impl	typeref:typename:m_it.primitive_iterator.	access:public	signature:()
@@ -3253,10 +3306,9 @@ strtof	include/nlohmann/json.hpp	/^    static void strtof(long double& f, const 
 sub	include/nlohmann/json.hpp	/^    static diyfp sub(const diyfp& x, const diyfp& y) noexcept$/;"	f	struct:detail::dtoa_impl::diyfp	typeref:typename:diyfp	access:public	signature:(const diyfp & x,const diyfp & y)
 subtype	include/nlohmann/json.hpp	/^    constexpr subtype_type subtype() const noexcept$/;"	f	class:byte_container_with_subtype	typeref:typename:subtype_type	access:public	signature:() const
 subtype_type	include/nlohmann/json.hpp	/^    using subtype_type = std::uint64_t;$/;"	t	class:byte_container_with_subtype	typeref:typename:std::uint64_t	access:public
-swap	Date.cpp	/^void Date::swap(Date& otherDate) noexcept {$/;"	f	class:Date	typeref:typename:void	signature:(Date & otherDate)
-swap	Date.cpp	/^void swap(Date& one, Date& other){$/;"	f	typeref:typename:void	signature:(Date & one,Date & other)
-swap	Date.h	/^    void swap(Date& otherDate) noexcept;$/;"	p	class:Date	typeref:typename:void	access:public	signature:(Date & otherDate)
-swap	Date.h	/^void swap(Date& one, Date& other) noexcept;$/;"	p	typeref:typename:void	signature:(Date & one,Date & other)
+swap	Date.cpp	/^void DT::Date::swap(DT::Date& otherDate) noexcept {$/;"	f	class:DT::Date	typeref:typename:void	signature:(DT::Date & otherDate)
+swap	Date.cpp	/^void DT::swap(DT::Date& one, DT::Date& other) noexcept {$/;"	f	class:DT	typeref:typename:void	signature:(DT::Date & one,DT::Date & other)
+swap	Date.h	/^    void swap(Date& otherDate) noexcept;$/;"	p	class:DT::Date	typeref:typename:void	access:public	signature:(Date & otherDate)
 swap	include/nlohmann/json.hpp	/^    friend void swap(reference left, reference right) noexcept ($/;"	f	typeref:typename:void	signature:(reference left,reference right)
 swap	include/nlohmann/json.hpp	/^    void swap(array_t& other) \/\/ NOLINT(bugprone-exception-escape,cppcoreguidelines-noexcept-s/;"	f	class:basic_json	typeref:typename:void	access:public	signature:(array_t & other)
 swap	include/nlohmann/json.hpp	/^    void swap(binary_t& other) \/\/ NOLINT(bugprone-exception-escape,cppcoreguidelines-noexcept-/;"	f	class:basic_json	typeref:typename:void	access:public	signature:(binary_t & other)
@@ -3372,7 +3424,8 @@ utf8_bytes_filled	include/nlohmann/json.hpp	/^    std::size_t utf8_bytes_filled 
 utf8_bytes_index	include/nlohmann/json.hpp	/^    std::size_t utf8_bytes_index = 0;$/;"	m	class:detail::wide_string_input_adapter	typeref:typename:std::size_t	access:private
 utility_internal	include/nlohmann/json.hpp	/^namespace utility_internal$/;"	n	namespace:detail
 v	include/nlohmann/json.hpp	/^    std::vector<CharType, AllocatorType>& v;$/;"	m	class:detail::output_vector_adapter	typeref:typename:std::vector<CharType,AllocatorType> &	access:private
-validateDateTime	Date.h	/^    bool validateDateTime(std::string_view str) const;$/;"	p	class:Date	typeref:typename:bool	access:private	signature:(std::string_view str) const
+validateDateTime	Date.cpp	/^bool DT::Date::validateDateTime(std::string_view str) const {$/;"	f	class:DT::Date	typeref:typename:bool	signature:(std::string_view str) const
+validateDateTime	Date.h	/^    bool validateDateTime(std::string_view str) const;$/;"	p	class:DT::Date	typeref:typename:bool	access:private	signature:(std::string_view str) const
 value	include/nlohmann/json.hpp	/^        value = sizeof(value_type) > 1$/;"	e	enum:detail::is_iterator_of_multibyte::__anonac0886120a03	access:public
 value	include/nlohmann/json.hpp	/^    ReturnType value(KeyType && key, ValueType && default_value) const$/;"	f	class:basic_json	typeref:typename:ReturnType	access:public	signature:(KeyType && key,ValueType && default_value) const
 value	include/nlohmann/json.hpp	/^    ReturnType value(const ::nlohmann::json_pointer<BasicJsonType>& ptr, ValueType && default_va/;"	f	class:basic_json	access:public	signature:(const::nlohmann::json_pointer<BasicJsonType> & ptr,ValueType && default_value) const
@@ -3473,7 +3526,7 @@ write_number	include/nlohmann/json.hpp	/^    void write_number(const NumberType 
 write_number_with_ubjson_prefix	include/nlohmann/json.hpp	/^    void write_number_with_ubjson_prefix(const NumberType n,$/;"	f	class:detail::binary_writer	typeref:typename:void	access:private	signature:(const NumberType n,const bool add_prefix,const bool use_bjdata)
 write_ubjson	include/nlohmann/json.hpp	/^    void write_ubjson(const BasicJsonType& j, const bool use_count,$/;"	f	class:detail::binary_writer	typeref:typename:void	access:public	signature:(const BasicJsonType & j,const bool use_count,const bool use_type,const bool add_prefix=true,const bool use_bjdata=false,const bjdata_version_t bjdata_version=bjdata_version_t::draft2)
 x	include/nlohmann/json.hpp	/^        char x[2]; \/\/ NOLINT(cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-a/;"	m	struct:detail::is_ordered_map::two	typeref:typename:char[2]	access:public
-~Date	Date.h	/^    ~Date() = default;$/;"	p	class:Date	access:public	signature:()
+~Date	Date.h	/^    ~Date() = default;$/;"	p	class:DT::Date	access:public	signature:()
 ~basic_json	include/nlohmann/json.hpp	/^    ~basic_json() noexcept$/;"	f	class:basic_json	access:public	signature:()
 ~binary_reader	include/nlohmann/json.hpp	/^    ~binary_reader() = default;$/;"	p	class:detail::binary_reader	access:public	signature:()
 ~data	include/nlohmann/json.hpp	/^        ~data() noexcept$/;"	f	struct:basic_json::data	access:public	signature:()

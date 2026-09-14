@@ -9,7 +9,7 @@
 #include<string_view>
 #include<stdexcept>
 #include<ctime>
-#include"nlohmann/json.hpp"
+#include"include/nlohmann/json.hpp"
 
 
 namespace nlohmann{
@@ -38,7 +38,7 @@ namespace nlohmann{
     };//adl_serializer
 }//nlohmann
  
-
+namespace DT{
 class Date{
 private:
     std::tm m_date;
@@ -52,13 +52,14 @@ public:
 
     Date(const Date& otherDate);
     Date& operator=(const Date& rhs);
-    Date(const Date&& otherDate) noexcept;
-    Date& operator=(const Date&& rhs) noexcept;
+    Date(Date&& otherDate) = delete;
+    Date& operator=(Date&& rhs) = delete;
 
     ~Date() = default;
 
     //Member swap() used to implement ninmember swap()
     void swap(Date& otherDate) noexcept;
+   friend  void swap(Date& one, Date& other) noexcept;
 
     //getters
     inline std::tm getTM() const{
@@ -72,11 +73,53 @@ public:
         return m_isLT;
     }
 
+    //setters
+    void setTM(std::string_view str = " ");
+    inline void normalize(){
+        std::mktime(&m_date);
+    }
+    inline void clear(){
+        Date d;
+        *this = d;
+    }
+    //a pair of functions for converting m_date to either GMT or local time
+    void convertToGmt();
+    void convertToLT();
 
+    //subtraction operator returss a double that isbthe
+    //difference between the two different Date objectsin seconds.
+    //iff the rhs is older than the lhs then a negative is returned
+    double operator - (const Date& otherDate) const {
+        std::tm rhs = otherDate.getTM();
+        std::tm lhs = getTM();
+        return std::difftime(std::mktime(&rhs),std::mktime(&lhs));
+    }
+    //spaceship operator and equal-to operator
+    //newer dates are less than older dates; therefore,
+    //(lhs < rhs) will be true if lhs is newer than rhs
+    std::partial_ordering operator <=>(const Date& rhs) const {
+        return (*this - rhs) <=> 0.0;
+    }
+    bool operator == (const Date& rhs) const {
+        return (*this - rhs) == 0.0;
+    }
+
+    NLOHMANN_DEFINE_TYPE_INTRUSIVE(Date, m_date, m_isLT)
 
 };//Date
 
-void swap(Date& one, Date& other) noexcept;
 
+class DateError : public std::runtime_error {
+    public:
+    explicit DateError(std::string_view msg) 
+        : std::runtime_error(std::format("Date error: {}", msg)){ }
+};//DateError
 
+static Date getCurrentTimeGMT();
+static Date getCurrentTimeLT();
+}//DT namespace
+
+std::ostream& operator << (std::ostream& os, const DT::Date& date);
+
+std::time_t getCurrentTime();
 #endif //header guard
