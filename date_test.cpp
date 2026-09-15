@@ -89,5 +89,29 @@ int main(){
 
    std::cout << d9.getStr() << "\n" << d9.getDBStr() << "\n";
    std::puts("passed");
-}
 
+    std::puts("///////////////////////");
+
+    std::puts("Testing string operator, << operator, empty,.getCurrentTime, getCurrentTimeGMT, getCurrentTimeLT");
+
+    std::string n = static_cast<std::string>(d9);
+    std::cout << "this string was created using a conversion.to string:\n" << n << "\n";
+
+
+    d9.setTM(" ");
+    std::cout << "this string was created using the << operator:\n" << d9 << "\n";
+
+    std::puts("Test clear function");
+    d9.clear();
+    DT::Date d10;
+    if(d9 != d10){
+        result = false;
+    }
+    displayResult(result);
+
+    std::puts("Test empty function");
+    if(!d9.empty()){
+        result = false;
+    }
+    displayResult(result);
+}

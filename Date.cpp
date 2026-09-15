@@ -132,3 +132,39 @@ std::string DT::Date::getDBStr() const {
     ret.resize(newSize);
     return std::move(ret);
 }
+bool DT::Date::empty() const {
+    return m_date.tm_mon == 0
+        && m_date.tm_mday == 0
+        && m_date.tm_year== 0
+        && m_date.tm_hour== 0
+        && m_date.tm_min == 0
+        && m_date.tm_sec == 0;
+}
+
+DT::Date::operator std::string() const {
+    return getStr();
+}
+
+std::ostream& DT::Date::operator <<(std::ostream& os, const DT::Date& date){
+    os << getStr();
+    return os;
+}
+
+std::time_t getCurrentTime(){
+    return std::time(nullptr);
+}
+
+DT::Date DT::getCurrentTimeGMT(){
+    std::time_t now getCurrentTime();
+    std::tm current = *std::gmtime(&now);
+    DT::Date ret = std::mktime(&current);
+    return ret;
+}
+
+
+DT::Date DT::getCurrentTimeLT(){
+    std::time_t now getCurrentTime();
+    std::tm current = *std::localtime(&now);
+    DT::Date ret = std::mktime(&current);
+    return ret;
+}

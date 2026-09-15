@@ -70,6 +70,7 @@ DT::Date::convertToGmt	Date.cpp	/^void DT::Date::convertToGmt(){$/;"	f	class:DT:
 DT::Date::convertToGmt	Date.h	/^    void convertToGmt();$/;"	p	class:DT::Date	typeref:typename:void	access:public	signature:()
 DT::Date::convertToLT	Date.cpp	/^void DT::Date::convertToLT(){$/;"	f	class:DT::Date	typeref:typename:void	signature:()
 DT::Date::convertToLT	Date.h	/^    void convertToLT();$/;"	p	class:DT::Date	typeref:typename:void	access:public	signature:()
+DT::Date::empty	Date.cpp	/^bool DT::Date::empty() const {$/;"	f	class:DT::Date	typeref:typename:bool	signature:() const
 DT::Date::empty	Date.h	/^    bool empty() const;$/;"	p	class:DT::Date	typeref:typename:bool	access:public	signature:() const
 DT::Date::getDBStr	Date.cpp	/^std::string DT::Date::getDBStr() const {$/;"	f	class:DT::Date	typeref:typename:std::string	signature:() const
 DT::Date::getDBStr	Date.h	/^    std::string getDBStr()const;$/;"	p	class:DT::Date	typeref:typename:std::string	access:public	signature:() const
@@ -81,11 +82,13 @@ DT::Date::m_date	Date.h	/^    std::tm m_date;$/;"	m	class:DT::Date	typeref:typen
 DT::Date::m_isLT	Date.h	/^    bool m_isLT{false};$/;"	m	class:DT::Date	typeref:typename:bool	access:private
 DT::Date::normalize	Date.h	/^    inline void normalize(){$/;"	f	class:DT::Date	typeref:typename:void	access:public	signature:()
 DT::Date::operator -	Date.h	/^    double operator - (const Date& otherDate) const {$/;"	f	class:DT::Date	typeref:typename:double	access:public	signature:(const Date & otherDate) const
+DT::Date::operator <<	Date.cpp	/^std::ostream& DT::Date::operator <<(std::ostream& os, const DT::Date& date){$/;"	f	class:DT::Date	typeref:typename:std::ostream &	signature:(std::ostream & os,const DT::Date & date)
 DT::Date::operator <=>	Date.h	/^    std::partial_ordering operator <=>(const Date& rhs) const {$/;"	f	class:DT::Date	typeref:typename:std::partial_ordering	access:public	signature:(const Date & rhs) const
 DT::Date::operator =	Date.cpp	/^DT::Date& DT::Date::operator=(const DT::Date& rhs){$/;"	f	class:DT::Date	typeref:typename:DT::Date &	signature:(const DT::Date & rhs)
 DT::Date::operator =	Date.h	/^    Date& operator=(Date&& rhs) = delete;$/;"	p	class:DT::Date	typeref:typename:Date &	access:public	signature:(Date && rhs)
 DT::Date::operator =	Date.h	/^    Date& operator=(const Date& rhs);$/;"	p	class:DT::Date	typeref:typename:Date &	access:public	signature:(const Date & rhs)
 DT::Date::operator ==	Date.h	/^    bool operator == (const Date& rhs) const {$/;"	f	class:DT::Date	typeref:typename:bool	access:public	signature:(const Date & rhs) const
+DT::Date::operator std::string	Date.cpp	/^DT::Date::operator std::string() const {$/;"	f	class:DT::Date	signature:() const
 DT::Date::operator std::string	Date.h	/^    explicit operator std::string() const;$/;"	p	class:DT::Date	access:public	signature:() const
 DT::Date::setTM	Date.cpp	/^void DT::Date::setTM(std::string_view str){$/;"	f	class:DT::Date	typeref:typename:void	signature:(std::string_view str)
 DT::Date::setTM	Date.h	/^    void setTM(std::string_view str = " ");$/;"	p	class:DT::Date	typeref:typename:void	access:public	signature:(std::string_view str=" ")
@@ -96,7 +99,9 @@ DT::Date::validateDateTime	Date.h	/^    bool validateDateTime(std::string_view s
 DT::Date::~Date	Date.h	/^    ~Date() = default;$/;"	p	class:DT::Date	access:public	signature:()
 DT::DateError	Date.h	/^class DateError : public std::runtime_error {$/;"	c	namespace:DT	inherits:std::runtime_error
 DT::DateError::DateError	Date.h	/^    explicit DateError(std::string_view msg) $/;"	f	class:DT::DateError	access:public	signature:(std::string_view msg)
+DT::getCurrentTimeGMT	Date.cpp	/^DT::Date DT::getCurrentTimeGMT(){$/;"	f	class:DT	typeref:typename:DT::Date	signature:()
 DT::getCurrentTimeGMT	Date.h	/^static Date getCurrentTimeGMT();$/;"	p	namespace:DT	typeref:typename:Date	signature:()
+DT::getCurrentTimeLT	Date.cpp	/^DT::Date DT::getCurrentTimeLT(){$/;"	f	class:DT	typeref:typename:DT::Date	signature:()
 DT::getCurrentTimeLT	Date.h	/^static Date getCurrentTimeLT();$/;"	p	namespace:DT	typeref:typename:Date	signature:()
 DT::swap	Date.cpp	/^void DT::swap(DT::Date& one, DT::Date& other) noexcept {$/;"	f	class:DT	typeref:typename:void	signature:(DT::Date & one,DT::Date & other)
 Date	Date.cpp	/^DT::Date::Date() = default;$/;"	p	class:DT::Date	file:	signature:()
@@ -2153,6 +2158,7 @@ emplace	include/nlohmann/json.hpp	/^    std::pair<iterator, bool> emplace(Args&&
 emplace	include/nlohmann/json.hpp	/^    std::pair<iterator, bool> emplace(KeyType && key, T && t)$/;"	f	struct:ordered_map	typeref:typename:std::pair<iterator,bool>	access:public	signature:(KeyType && key,T && t)
 emplace	include/nlohmann/json.hpp	/^    std::pair<iterator, bool> emplace(const key_type& key, T&& t)$/;"	f	struct:ordered_map	typeref:typename:std::pair<iterator,bool>	access:public	signature:(const key_type & key,T && t)
 emplace_back	include/nlohmann/json.hpp	/^    reference emplace_back(Args&& ... args)$/;"	f	class:basic_json	typeref:typename:reference	access:public	signature:(Args &&...args)
+empty	Date.cpp	/^bool DT::Date::empty() const {$/;"	f	class:DT::Date	typeref:typename:bool	signature:() const
 empty	Date.h	/^    bool empty() const;$/;"	p	class:DT::Date	typeref:typename:bool	access:public	signature:() const
 empty	include/nlohmann/json.hpp	/^    bool empty() const noexcept$/;"	f	class:basic_json	typeref:typename:bool	access:public	signature:() const
 empty	include/nlohmann/json.hpp	/^    bool empty() const noexcept$/;"	f	class:json_pointer	typeref:typename:bool	access:public	signature:() const
@@ -2301,8 +2307,11 @@ get	include/nlohmann/json.hpp	/^    char_int_type get()$/;"	f	class:detail::lexe
 get	include/nlohmann/json.hpp	/^    contiguous_bytes_input_adapter&& get()$/;"	f	class:detail::span_input_adapter	typeref:typename:contiguous_bytes_input_adapter &&	access:public	signature:()
 get	include/nlohmann/json.hpp	/^auto get(const nlohmann::detail::iteration_proxy_value<IteratorType>& i) -> decltype(i.key())$/;"	f	namespace:detail	typeref:typename:decltype(i.key ())	signature:(const nlohmann::detail::iteration_proxy_value<IteratorType> & i)
 get	include/nlohmann/json.hpp	/^auto get(const nlohmann::detail::iteration_proxy_value<IteratorType>& i) -> decltype(i.value())$/;"	f	namespace:detail	typeref:typename:decltype(i.value ())	signature:(const nlohmann::detail::iteration_proxy_value<IteratorType> & i)
+getCurrentTime	Date.cpp	/^std::time_t getCurrentTime(){$/;"	f	typeref:typename:std::time_t	signature:()
 getCurrentTime	Date.h	/^std::time_t getCurrentTime();$/;"	p	typeref:typename:std::time_t	signature:()
+getCurrentTimeGMT	Date.cpp	/^DT::Date DT::getCurrentTimeGMT(){$/;"	f	class:DT	typeref:typename:DT::Date	signature:()
 getCurrentTimeGMT	Date.h	/^static Date getCurrentTimeGMT();$/;"	p	namespace:DT	typeref:typename:Date	signature:()
+getCurrentTimeLT	Date.cpp	/^DT::Date DT::getCurrentTimeLT(){$/;"	f	class:DT	typeref:typename:DT::Date	signature:()
 getCurrentTimeLT	Date.h	/^static Date getCurrentTimeLT();$/;"	p	namespace:DT	typeref:typename:Date	signature:()
 getDBStr	Date.cpp	/^std::string DT::Date::getDBStr() const {$/;"	f	class:DT::Date	typeref:typename:std::string	signature:() const
 getDBStr	Date.h	/^    std::string getDBStr()const;$/;"	p	class:DT::Date	typeref:typename:std::string	access:public	signature:() const
@@ -2951,6 +2960,7 @@ operator <	include/nlohmann/json.hpp	/^    bool operator<(const iter_impl& other
 operator <	include/nlohmann/json.hpp	/^    friend constexpr bool operator<(primitive_iterator_t lhs, primitive_iterator_t rhs) noexcept$/;"	f	namespace:detail	typeref:typename:bool	signature:(primitive_iterator_t lhs,primitive_iterator_t rhs)
 operator <	include/nlohmann/json.hpp	/^inline bool operator<(const json_pointer<RefStringTypeLhs>& lhs,$/;"	f	typeref:typename:bool	signature:(const json_pointer<RefStringTypeLhs> & lhs,const json_pointer<RefStringTypeRhs> & rhs)
 operator <	include/nlohmann/json.hpp	/^inline bool operator<(const value_t lhs, const value_t rhs) noexcept$/;"	f	namespace:detail	typeref:typename:bool	signature:(const value_t lhs,const value_t rhs)
+operator <<	Date.cpp	/^std::ostream& DT::Date::operator <<(std::ostream& os, const DT::Date& date){$/;"	f	class:DT::Date	typeref:typename:std::ostream &	signature:(std::ostream & os,const DT::Date & date)
 operator <<	Date.h	/^std::ostream& operator << (std::ostream& os, const DT::Date& date);$/;"	p	typeref:typename:std::ostream &	signature:(std::ostream & os,const DT::Date & date)
 operator <<	include/nlohmann/json.hpp	/^    friend std::istream& operator<<(basic_json& j, std::istream& i)$/;"	f	typeref:typename:JSON_HEDLEY_DEPRECATED_FOR (3.0.0,operator>> (std::istream &,basic_json &))std::istream &	signature:(basic_json & j,std::istream & i)
 operator <<	include/nlohmann/json.hpp	/^    friend std::ostream& operator<<(std::ostream& o, const basic_json& j)$/;"	f	typeref:typename:std::ostream &	signature:(std::ostream & o,const basic_json & j)
@@ -3037,6 +3047,7 @@ operator []	include/nlohmann/json.hpp	/^    reference operator[](size_type idx)$
 operator []	include/nlohmann/json.hpp	/^    reference operator[](typename object_t::key_type key) \/\/ NOLINT(performance-unnecessary-va/;"	f	class:basic_json	typeref:typename:reference	access:public	signature:(typename object_t::key_type key)
 operator output_adapter_t<CharType>	include/nlohmann/json.hpp	/^    operator output_adapter_t<CharType>()$/;"	f	class:detail::output_adapter	access:public	signature:()
 operator size_t	include/nlohmann/json.hpp	/^    constexpr operator size_t() const$/;"	f	struct:detail::position_t	access:public	signature:() const
+operator std::string	Date.cpp	/^DT::Date::operator std::string() const {$/;"	f	class:DT::Date	signature:() const
 operator std::string	Date.h	/^    explicit operator std::string() const;$/;"	p	class:DT::Date	access:public	signature:() const
 operator value_t	include/nlohmann/json.hpp	/^    constexpr operator value_t() const noexcept$/;"	f	class:basic_json	access:public	signature:() const
 ordered_json	include/nlohmann/json.hpp	/^    using ordered_json = basic_json<nlohmann::ordered_map>;$/;"	t	typeref:typename:basic_json<nlohmann::ordered_map>
