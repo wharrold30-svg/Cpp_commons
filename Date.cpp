@@ -141,12 +141,22 @@ bool DT::Date::empty() const {
         && m_date.tm_sec == 0;
 }
 
+void DT::Date::clear(){
+
+    m_date.tm_mon = 0;
+    m_date.tm_mday = 0;
+    m_date.tm_year = 0;
+    m_date.tm_hour = 0;
+    m_date.tm_min = 0;
+    m_date.tm_sec = 0;
+}
+
 DT::Date::operator std::string() const {
     return getStr();
 }
 
-std::ostream& DT::Date::operator <<(std::ostream& os, const DT::Date& date){
-    os << getStr();
+std::ostream& operator <<(std::ostream& os, const DT::Date& date){
+    os << date.getStr();
     return os;
 }
 
@@ -155,16 +165,18 @@ std::time_t getCurrentTime(){
 }
 
 DT::Date DT::getCurrentTimeGMT(){
-    std::time_t now getCurrentTime();
-    std::tm current = *std::gmtime(&now);
-    DT::Date ret = std::mktime(&current);
-    return ret;
+    std::time_t now = getCurrentTime();
+    std::tm ct = *std::gmtime(&now);
+    DT::Date ret{ct};
+
+    return static_cast<const DT::Date&>(ret);
+
 }
 
 
 DT::Date DT::getCurrentTimeLT(){
-    std::time_t now getCurrentTime();
-    std::tm current = *std::localtime(&now);
-    DT::Date ret = std::mktime(&current);
-    return ret;
+    std::time_t now = getCurrentTime();
+    std::tm ct = *std::localtime(&now);
+    DT::Date ret{ct};
+    return static_cast<const DT::Date&>(ret);
 }

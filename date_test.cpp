@@ -104,13 +104,32 @@ int main(){
     std::puts("Test clear function");
     d9.clear();
     DT::Date d10;
+    result = true;
     if(d9 != d10){
         result = false;
     }
     displayResult(result);
+    result = true;
 
     std::puts("Test empty function");
     if(!d9.empty()){
+        result = false;
+    }
+    displayResult(result);
+
+
+    std::puts("Test spaceship operator");
+    result= true;
+    DT::Date d11;
+    if(d11 > d10){
+        result = false;
+    }
+    displayResult(result);
+
+    std::puts("Test subtraction operator");
+    result = true;
+    const double num =  d11 - d10;
+    if(num < 0){
         result = false;
     }
     displayResult(result);

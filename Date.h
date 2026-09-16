@@ -78,10 +78,7 @@ public:
     inline void normalize(){
         std::mktime(&m_date);
     }
-    inline void clear(){
-        Date d;
-        *this = d;
-    }
+    void clear();
     //a pair of functions for converting m_date to either GMT or local time
     void convertToGmt();
     void convertToLT();
