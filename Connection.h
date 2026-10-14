@@ -29,7 +29,7 @@ class Socket {
   inline int safeRead(int fd, void* buf, std::size_t count);
   inline int safeWrite(int fd, const char* buf, std::size_t count);
   inline int readBuffer(int fd, char* buf, int count);
-  inline int writeBuffer(int fd, char* buf, int count);
+  inline int writeBuffer(int fd, const char* buf, int count);
   inline unsigned long readNetulong();
   inline void writeNetulong(const unsigned long value);
 
